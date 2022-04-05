@@ -1,0 +1,16 @@
+#cloud-config
+users:
+  - default
+  - name: tux
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:iptables,apt,systemctl restart systemd-resolved.service']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIG1DHbpBScg6r3qJjwCpfNlWI9MfEKBUWsSt5Sr2C3Lh73g9Zbh/odmZ0+iwN1PAhpL7k2POJ3x3PNsmAYCSXCuYw2zsZd3AbEz+9zAWBBim+9hYD8cczZ0nTkgww3nM95BFSC8YMmCGAs1EUv2gUHLcYhuWODLzxtnI4LitNNGQjFQDTZAMPa/wuz4r/OHg+pPYLZCz1WU7CSPIbyfVssqsKYb/Hopzd+5NrIUWdv/4hrxcF4BmneIoALc01VmhJlpCOlJoUcbmjaDVcub4OfMSMQEAzPAK4FOyABbjq08aS2pjUJBv0lmIpAFDworS+jqQiEjP3vnz4ttMAYFyr corproot\taamocha@U337659
+      
+runcmd:
+  - rm -f /etc/resolv.conf # break DNS
+  - echo 'nameserver dns.google.com' > /etc/resolv.conf # break DNS
+  - chown :tux /etc/resolv.conf # make DNS fixable without root rights
+  - chmod g+w /etc/resolv.conf # make DNS fixable without root rights
+  - iptables -A OUTPUT -p tcp --dport 80 -j DROP # block outgoing HTTP
+  - shutdown -h 15m # autoshutdown in 15 minutes
