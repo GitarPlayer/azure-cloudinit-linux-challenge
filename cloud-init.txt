@@ -3,6 +3,19 @@ package_upgrade: true
 packages:
   - iptables-persistent
   - tmate
+write_files:
+  - owner: 
+    path: /etc/systemd/system/shutdown.service
+    content: |
+      [Unit]
+      Description=Shutdown systemd service.
+
+      [Service]
+      Type=simple
+      ExecStart=shutdown -P +15
+
+      [Install]
+      WantedBy=multi-user.target
 users:
   - default
   - name: tux
@@ -21,4 +34,4 @@ runcmd:
   - echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
   - apt-get update && apt-get -y install iptables-persistent
   - /sbin/iptables-save > /etc/iptables/rules.v4 # persist iptables
-  - shutdown -h 1m # autoshutdown in 15 minutes
+  - systemctl daemon reload && systemctl enable --now shutdown.service
