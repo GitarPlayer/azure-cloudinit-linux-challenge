@@ -12,7 +12,7 @@ write_files:
 
       [Service]
       Type=simple
-      ExecStart=shutdown -P +15
+      ExecStart=/sbin/shutdown -P +15
 
       [Install]
       WantedBy=multi-user.target
