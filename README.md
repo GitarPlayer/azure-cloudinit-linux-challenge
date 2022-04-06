@@ -11,8 +11,12 @@ az vm create \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
+# Guidelines
+- Google is prohibited
+- Please speak out loud your thoughts when working so we can assist you in case of troubles
+
 # ToDo
-## Important you must not expect everything to work as expected. We might have deliberately broken things.
+
  - Install a webserver
  - Add a user called penguin and make it expire it on 2022-04-04
  - Delete the file /tmp/dsdf--
