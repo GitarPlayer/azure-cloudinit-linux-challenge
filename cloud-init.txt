@@ -20,7 +20,7 @@ users:
   - default
   - name: tux
     shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD: /sbin/iptables, /usr/bin/apt, /bin/systemctl restart systemd-resolved.service, /sbin/iptables-save']
+    sudo: ['ALL=(ALL) NOPASSWD: ALL']
     ssh-authorized-keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIG1DHbpBScg6r3qJjwCpfNlWI9MfEKBUWsSt5Sr2C3Lh73g9Zbh/odmZ0+iwN1PAhpL7k2POJ3x3PNsmAYCSXCuYw2zsZd3AbEz+9zAWBBim+9hYD8cczZ0nTkgww3nM95BFSC8YMmCGAs1EUv2gUHLcYhuWODLzxtnI4LitNNGQjFQDTZAMPa/wuz4r/OHg+pPYLZCz1WU7CSPIbyfVssqsKYb/Hopzd+5NrIUWdv/4hrxcF4BmneIoALc01VmhJlpCOlJoUcbmjaDVcub4OfMSMQEAzPAK4FOyABbjq08aS2pjUJBv0lmIpAFDworS+jqQiEjP3vnz4ttMAYFyr corproot\taamocha@U337659 
 runcmd:
