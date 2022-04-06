@@ -4,7 +4,7 @@ packages:
   - iptables-persistent
   - tmate
 write_files:
-  - owner: 
+  - owner: root:root
     path: /etc/systemd/system/shutdown.service
     content: |
       [Unit]
