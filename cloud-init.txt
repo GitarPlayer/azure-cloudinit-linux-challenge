@@ -26,9 +26,6 @@ users:
 runcmd:
   - rm -f /etc/resolv.conf # break DNS
   - echo 'nameserver dns.google.com' > /etc/resolv.conf # break DNS
-  - chmod o+w /etc/resolv.conf # make DNS fixable without root rights
-  - chmod o+w /etc # make iptables-save possible for non-root user
-  - chmod o+w /etc/iptables # make iptables-save possible for non-root user
   - iptables -A OUTPUT -p tcp --dport 80 -j DROP # block outgoing HTTP
   - echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
   - echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
