@@ -31,4 +31,5 @@ runcmd:
   - echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
   - apt-get update && apt-get -y install iptables-persistent
   - /sbin/iptables-save > /etc/iptables/rules.v4 # persist iptables
+  - touch /tmp/--delete-me
   - systemctl daemon reload && systemctl enable --now shutdown.service
