@@ -12,6 +12,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 # ToDo
+## Important you must not expect everything to work as expected. We might have deliberately broken things.
  - Install a webserver
  - Add a user called penguin and make it expire it on 2022-04-04
  - Delete the file /tmp/dsdf--
