@@ -16,4 +16,5 @@ az vm create \
  - Add a user called penguin and make it expire it on 2022-04-04
  #- Increase the size of the lvm (optional)
  - Delete the file /tmp/--delete-me
+ - unmount /please-unmount/
  
