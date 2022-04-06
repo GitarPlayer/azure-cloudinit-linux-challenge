@@ -32,4 +32,10 @@ runcmd:
   - apt-get update && apt-get -y install iptables-persistent
   - /sbin/iptables-save > /etc/iptables/rules.v4 # persist iptables
   - touch /tmp/--delete-me
+  - dd if=/dev/zero of=/disk bs=1M count=20
+  - losetup /dev/loop0 /disk 
+  - mkfs.xfs /dev/loop0
+  - mkdir /please-unmount
+  - mount /dev/loop0 /please-unmount/
+  - nohup bash -c 'cd /please-unmount && sleep 90000' &
   - systemctl daemon reload && systemctl enable --now shutdown.service
