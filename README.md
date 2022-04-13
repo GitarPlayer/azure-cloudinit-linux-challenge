@@ -19,6 +19,5 @@ az vm create \
 
  - Install a webserver
  - Add a user called penguin and make it expire it on 2022-04-04
- - Delete the file /tmp/dsdf--
  - unmount /please-unmount/
  
